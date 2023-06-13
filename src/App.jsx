@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer, createContext } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { Layout, Typography, Space, Row, Col } from "antd";
 import {
@@ -10,13 +10,81 @@ import {
   Exchanges,
 } from "./components";
 import "./App.css";
+/*
+const value = [1, 2, 3, 4, 5, 6, 7];
+export const operationCreateContext = createContext();*/
+const abc = [];
+export const myContext = createContext();
 const App = () => {
   const { Header, Footer, Sider, Content } = Layout;
+  const first = (state, action) => {
+    let result;
+    switch (action.type) {
+      case "IJK":
+        result = [...action.payload, `ahsan jawed ${action.type}`];
+        state = result
+        console.log(state);
+      case "XYZ":
+        result = [...action.payload, `ahsan jawed ${action.type}`];
+        state = result;
+        console.log(state);
+        console.log(result);
+      default:
+        return state;
+        break;
+    }
+  };
+  const [ahsan, dispatch] = useReducer(first, abc);
+  const ijk = (id) => {
+    dispatch({ type: "IJK", payload: id });
+  };
+  const xyz = (id) => {
+    dispatch({ type: "XYZ", payload: id });
+  };
+  const finale = {
+    ahsan: ahsan,
+    ijk: ijk,
+    xyz: xyz,
+  };
+  /*
+    const First = (state, action) => {
+      let output;
+      switch (action.type) {
+        case "ADD":
+          output = state.reduce((acc, currVal) => acc + currVal, 0);
+          return `the addition is ${output}`;
+        case "SUBTRACTION":
+          output = state.reduce((acc, currVal) => acc - currVal, 0);
+          return `the subtraction is ${output}`;
+        default:
+          console.log("Error 404");
+      }
+    };
+    const [logic, dispatch] = useReducer(First, value);
+    const add = () => {
+      dispatch({ type: "ADD" });
+    };
+    const subtraction = () => {
+      dispatch({ type: "SUBTRACTION" });
+    };
+    let abc = {
+      logic: logic,
+      add: add,
+      subtraction: subtraction,
+    };
+  */
   return (
     <>
       <div className="app">
         <div className="navbar">
-          <Navbar />
+          {/*
+          <operationCreateContext.Provider value={abc}>
+            <Navbar />
+          </operationCreateContext.Provider>
+          */}
+          <myContext.Provider value={finale}>
+            <Navbar />
+          </myContext.Provider>
         </div>
         <div className="main">
           <Layout>
@@ -39,7 +107,7 @@ const App = () => {
               style={{ color: "white", textAlign: "center" }}
             >
               Copyright © 2021
-              <Link to="/"> Cryptoverse Inc.</Link>
+              <Link to="/"> Cryptoverse Inc. By Ahsan Jawed</Link>
               <br />
               All Rights Reserved
             </Typography.Title>

@@ -28,7 +28,7 @@ const CryptoDetails = () => {
   if(!isFetching){
     return ".......";
   }
-  console.log(data);*/
+  console.log(datas);*/
   return (
     <>
       <Col className="crypto-detail-container">

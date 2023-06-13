@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useGetExchangesQuery } from "../services/cryptoApi";
-import { Row, Col, Collapse, Typography, Avatar } from "antd";
+import { AppleOutlined } from "@ant-design/icons";
+import { Row, Col, Collapse, Typography, Avatar, Divider } from "antd";
 import HTMLReactParser from "html-react-parser";
 import millify from "millify";
 const Exchanges = () => {
@@ -11,9 +12,9 @@ const Exchanges = () => {
   const { Panel } = Collapse;
   //console.log(exchanges);
   useEffect(() => {
-    setCheckValue(exchanges?.data?.coins);
+    //setCheckValue(exchanges?.data?.coins);
     const checking__condition = exchanges?.data?.coins?.filter((check) => {
-      return check?.numberOfMarkets > 5;
+      return check?.numberOfMarkets > 0;
     });
     setCheckValue(checking__condition);
   }, [exchanges]);
@@ -67,6 +68,9 @@ const Exchanges = () => {
                     over the years, sometimes by accident, sometimes on purpose
                     (injected humour and the like).
                   </p>
+                  <Divider>
+                    <Avatar icon={<AppleOutlined />} size="large" />
+                  </Divider>
                 </Panel>
               </Collapse>
             </Col>

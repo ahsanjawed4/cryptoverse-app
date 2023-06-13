@@ -341,7 +341,7 @@ a:hover {
 .home-heading-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+ 
   margin-top: 40px;
 }
 .show-more {
@@ -412,7 +412,7 @@ a:hover {
   min-width: 30%;
 }
 .nested-stats-row {
-  padding: 20px 10px;
+  padding: 20px 11px;
   border-bottom: 1px solid var(--border);
 }
 .nested-stats-row p {

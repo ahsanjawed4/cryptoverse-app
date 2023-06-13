@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useGetCryptoQuery } from "../services/cryptoApi";
-import { HomeOutlined } from "@ant-design/icons";
+import { HomeOutlined, AppleOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Row, Col, Typography, Card, Input } from "antd";
+import { Row, Col, Typography, Card, Input, Divider, Avatar } from "antd";
 import millify from "millify";
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -18,8 +18,30 @@ const Cryptocurrencies = ({ simplified }) => {
   if (isFetching) {
     return "......";
   }
+  /*
+  const looping = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22,
+  ];*/
   return (
     <>
+      {/* 
+      <Row gutter={[32, 32]} style={{ marginBottom: "40px" }}>
+        {looping.slice(0, count).map((l) => {
+          return (
+            <Col xs={24} sm={12} md={8}>
+              <Card title="Ahsan jawed" extra={l} hoverable key={l}>
+                <Typography.Title
+                  level={1}
+                  style={{ textAlign: "center", marginBottom: "20px" }}
+                >
+                  Welcome to the Show
+                </Typography.Title>
+              </Card>
+            </Col>
+          );
+        })}
+      </Row>*/}
       {!simplified && (
         <div className="search-crypto">
           <Typography.Title

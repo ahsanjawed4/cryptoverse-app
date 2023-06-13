@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Row, Col, Card, Typography, Avatar, Select } from "antd";
 import { useGetCryptoNewsApiQuery } from "../services/cryptoNewsApi";
 import { useGetCryptoQuery } from "../services/cryptoApi";
 import moment from "moment";
+
 const News = ({ simplified }) => {
   const demo__Image =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXrkfpLUyLUVm8HPdnyi_ESTg3ib5cBFdMvA&usqp=CAU";
@@ -13,6 +14,7 @@ const News = ({ simplified }) => {
   };
   const { data: cryptoNews } = useGetCryptoNewsApiQuery(abc);
   const { data } = useGetCryptoQuery(100);
+
   //console.log(data);
   console.log(cryptoNews);
   return (
