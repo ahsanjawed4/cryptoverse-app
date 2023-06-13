@@ -33,7 +33,6 @@ const Navbar = () => {
     }
   }, [screenSize]);
   const { ahsan, ijk, xyz } = useContext(myContext);
-  console.log(ahsan);
   return (
     <>
       {/*

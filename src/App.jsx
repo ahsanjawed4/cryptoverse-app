@@ -23,12 +23,9 @@ const App = () => {
       case "IJK":
         result = [...action.payload, `ahsan jawed ${action.type}`];
         state = result
-        console.log(state);
       case "XYZ":
         result = [...action.payload, `ahsan jawed ${action.type}`];
         state = result;
-        console.log(state);
-        console.log(result);
       default:
         return state;
         break;

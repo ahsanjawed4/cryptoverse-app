@@ -14,9 +14,6 @@ const News = ({ simplified }) => {
   };
   const { data: cryptoNews } = useGetCryptoNewsApiQuery(abc);
   const { data } = useGetCryptoQuery(100);
-
-  //console.log(data);
-  console.log(cryptoNews);
   return (
     <Row gutter={[24, 24]}>
       {!simplified && (
